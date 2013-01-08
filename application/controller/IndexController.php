@@ -79,6 +79,7 @@ class IndexController
      */
     public function getForm()
     {
+        // Short Modification
         return $this->form->getForm();
     }
 
