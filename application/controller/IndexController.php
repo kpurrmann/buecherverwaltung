@@ -47,6 +47,7 @@ class IndexController
     private function addAction()
     {
         echo 'Add Action';
+        echo 'tets';
     }
 
     /**
