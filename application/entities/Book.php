@@ -33,6 +33,13 @@ class Book extends Entity
     private $title;
 
     /**
+     * @var string
+     *
+     * @Column(name="author", type="string", length=255, nullable=false)
+     */
+    private $author;
+
+    /**
      * @var integer
      *
      * @Column(name="isbn", type="integer", length=13, nullable=false)
@@ -58,6 +65,13 @@ class Book extends Entity
      * })
      */
     private $rating;
+
+    /**
+     * @var string
+     *
+     * @Column(name="comment", type="text", nullable=true)
+     */
+    private $comment;
 
     public function getId()
     {
@@ -102,6 +116,26 @@ class Book extends Entity
     public function setRating($rating)
     {
         $this->rating = $rating;
+    }
+
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+    }
+
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    public function setAuthor($author)
+    {
+        $this->author = $author;
     }
 
 }

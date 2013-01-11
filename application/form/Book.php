@@ -20,7 +20,9 @@ class Book
     public function __construct()
     {
         $this->form = new \HTML_QuickForm2('management');
+        $this->form->setAttribute('action', '?action=add');
         $this->form->addText('title')->setLabel('Titel')->addRule('required', 'Please enter a valid title');
+        $this->form->addText('author')->setLabel('Autor')->addRule('required', 'Please enter a valid author');
 
 
         $isbn = new \HTML_QuickForm2_Element_InputText('isbn');
@@ -45,7 +47,7 @@ class Book
            )
         ))->setLabel('Bewertung')->setId('rating');
 
-
+        $this->form->addElement('textarea', 'comment')->setLabel('Kommentar')->setId('comment');
 
         $this->form->addSubmit('Speichern')->addClass('btn btn-primary');
     }
