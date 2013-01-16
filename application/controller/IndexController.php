@@ -4,8 +4,9 @@ namespace Buecherverwaltung\Controller;
 
 use Buecherverwaltung\Form\Book;
 use HTML_QuickForm2;
-use Doctrine\ORM\Tools\Setup;
-use Doctrine\ORM\EntityManager;
+require_once __DIR__ . '/../libs/Doctrine/ORM/Tools/Setup.php';
+\Doctrine\ORM\Tools\Setup::registerAutoloadDirectory(__DIR__ . '/../libs');
+require_once __DIR__ . '/../libs/Doctrine/ORM/EntityManager.php';
 
 /**
  * Description of IndexController
@@ -48,9 +49,6 @@ class IndexController
     private function setEntityManager()
     {
 
-        Setup::registerAutoloadPEAR();
-
-
         $paths = array(__DIR__ . "/../entities");
         $isDevMode = false;
 
@@ -62,10 +60,10 @@ class IndexController
            'host' => 'localhost'
         );
 
-        $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
+        $config = \Doctrine\ORM\Tools\Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
         $config->setProxyDir(__DIR__ . '/../../cache/');
         $config->setAutoGenerateProxyClasses(true);
-        $this->em = EntityManager::create($dbParams, $config);
+        $this->em = \Doctrine\ORM\EntityManager::create($dbParams, $config);
     }
 
     /**
