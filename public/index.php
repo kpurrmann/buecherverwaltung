@@ -10,7 +10,7 @@
 
 require_once '../application/form/Book.php';
 require_once '../application/controller/IndexController.php';
-require_once 'Doctrine/ORM/Tools/Setup.php';
+require_once '../application/libs/Doctrine/ORM/Tools/Setup.php';
 require_once __DIR__ . '/../application/entities/Book.php';
 
 $controller = new \Buecherverwaltung\Controller\IndexController();
