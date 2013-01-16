@@ -56,8 +56,8 @@ class IndexController
 
         $dbParams = array(
            'driver' => 'pdo_mysql',
-           'user' => '****',
-           'password' => '********',
+           'user' => 'root',
+           'password' => 'frDBadmin',
            'dbname' => 'literature',
            'host' => 'localhost'
         );
